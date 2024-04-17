@@ -6,8 +6,19 @@ export const UncontrolledFlow = ({ children, onDone }) => {
 
   const currentChild = React.Children.toArray(children)[currentStepIndex];
 
-  const next = () => {
-    setCurrentStepIndex(currentStepIndex + 1);
+  const next = (dataFromStep) => {
+    const nextIndex = currentStepIndex + 1;
+    const updatedData = { ...data, ...dataFromStep };
+
+    console.log(updatedData);
+
+    if (nextIndex < children.length) {
+      setCurrentStepIndex(nextIndex);
+    } else {
+      onDone(updatedData);
+    }
+
+    setData(updatedData);
   };
 
   if (React.isValidElement(currentChild)) {
