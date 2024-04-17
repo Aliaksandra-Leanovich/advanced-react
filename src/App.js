@@ -1,4 +1,4 @@
-import { DataSource } from "./components/data-source";
+import { DataSourceWithRenderProps } from "./components/data-source-with-render-props";
 import { UserInfo } from "./components/user-info";
 import axios from "axios";
 
@@ -10,9 +10,14 @@ const fetchData = async (url) => {
 function App() {
   return (
     <>
-      <DataSource getData={() => fetchData("/users/1")} resourceName={"user"}>
+      <DataSourceWithRenderProps
+        getData={() => fetchData("/users/1")}
+        render={(resource) => {
+          <UserInfo user={resource} />;
+        }}
+      >
         <UserInfo />
-      </DataSource>
+      </DataSourceWithRenderProps>
     </>
   );
 }
