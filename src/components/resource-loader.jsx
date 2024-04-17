@@ -1,15 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-export const CurrentUserLoader = ({ children }) => {
-  const [user, setUser] = useState(null);
+export const ResourceLoader = ({ resourceUrl, resourceName, children }) => {
+  const [resource, setResource] = useState(null);
 
   useEffect(() => {
     (async () => {
-      const response = await axios.get("/current-user");
-      setUser(response.data);
+      const response = await axios.get(`${resourceUrl}`);
+      setResource(response.data);
     })();
-  }, []);
+  }, [resourceUrl]);
 
   return (
     <>
@@ -17,7 +17,7 @@ export const CurrentUserLoader = ({ children }) => {
         if (React.isValidElement(child)) {
           // Check if the child element is a valid React element
 
-          return React.cloneElement(child, { user });
+          return React.cloneElement(child, { [resourceName]: resource });
           // Clone the child element and pass the 'user' prop to it
         }
 
