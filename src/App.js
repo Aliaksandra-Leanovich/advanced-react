@@ -1,27 +1,18 @@
-import { BookInfo } from "./components/book-info";
-import { CurrentUserLoader } from "./components/current-user-loader";
-import { ResourceLoader } from "./components/resource-loader";
+import { DataSource } from "./components/data-source";
 import { UserInfo } from "./components/user-info";
-import { UserLoader } from "./components/user-loader";
+import axios from "axios";
+
+const fetchData = async (url) => {
+  const response = await axios.get(url);
+  return response.data;
+};
 
 function App() {
   return (
     <>
-      <CurrentUserLoader>
+      <DataSource getData={() => fetchData("/users/1")} resourceName={"user"}>
         <UserInfo />
-      </CurrentUserLoader>
-
-      <UserLoader userId={"3"}>
-        <UserInfo />
-      </UserLoader>
-
-      <ResourceLoader resourceUrl={"/users/2"} resourceName={"user"}>
-        <UserInfo />
-      </ResourceLoader>
-
-      <ResourceLoader resourceUrl={"/books/1"} resourceName={"book"}>
-        <BookInfo />
-      </ResourceLoader>
+      </DataSource>
     </>
   );
 }
