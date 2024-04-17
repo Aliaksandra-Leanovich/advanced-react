@@ -33,3 +33,66 @@ const ContainerComponent = () => {
   );
 };
 ```
+
+### 3. Controlled and Uncontrolled Components
+
+Uncontrolled Components:
+
+Uncontrolled components are those where the component itself manages its own internal state, and the data within the component is typically accessed only when specific events happen.
+
+Example:
+
+An uncontrolled form where values of two form inputs are known to the outside components only when the user triggers the submit event.
+
+**Example:**
+
+```jsx
+const UncontrolledComponent = ({ onSubmit }) => {
+  //state managment by component itself
+  const [value, setValue] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onSubmit(value);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
+
+
+<>
+  <UncontrolledComponent onSubmit={(data) => {...}}/>
+</>;
+```
+
+Controlled Components:
+
+Controlled components are components in which the parent component is responsible for managing the state, which is passed down to the control component. The parent component handles the state and controls the behavior of the controlled component.
+
+```jsx
+const ControlledComponent = ({ onSubmit, value, onChange }) => {
+  return (
+    <form onSubmit={onSubmit}>
+      <input
+        type="text"
+        value={value}
+        onChange={onChange}
+      />
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
+
+<>
+  <ControlledComponent data={...} onSubmit={() => {...}} onChange={() => {...}}/>
+</>;
+```
