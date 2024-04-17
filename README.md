@@ -96,3 +96,7 @@ const ControlledComponent = ({ onSubmit, value, onChange }) => {
   <ControlledComponent data={...} onSubmit={() => {...}} onChange={() => {...}}/>
 </>;
 ```
+
+##### Which approach controls or uncontrolled components should we prefer?
+
+- In most cases, controlled components are the preferred choice. There are several reasons for this preference. First of all, control components tend to be more usable and easier to test with controlled components. We can easily set up the component with the desired state for testing purposes. This eliminates the need to manually manipulate the components and trigger events to examine its internal behaviour.
