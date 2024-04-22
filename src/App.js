@@ -1,12 +1,11 @@
-import { checkProps } from "./components/check-props";
-import { includeUser } from "./components/include-user";
-import { UserInfoForm } from "./components/user-form";
+import { BookInfo } from "./components/book-info";
 import { UserInfo } from "./components/user-info";
 
 function App() {
   return (
     <>
-      <UserInfoForm />
+      <UserInfo userId={"1"} />
+      <BookInfo bookId={"2"} />
     </>
   );
 }
