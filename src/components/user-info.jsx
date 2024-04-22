@@ -3,6 +3,7 @@ import axios from "axios";
 
 const fetchFromServer = (url) => async () => {
   const response = await axios.get(url);
+
   return response.data;
 };
 
@@ -14,6 +15,7 @@ export const UserInfo = ({ userId }) => {
   const user = useDataSource(fetchFromServer(`/users/${userId}`));
   const loginAttemps = useDataSource(getFromLocalStorage("logins"));
   const { name, age, country, books } = user || {};
+
   return user ? (
     <>
       <h2>{name}</h2>

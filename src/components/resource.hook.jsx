@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+
 export const useResource = (resouceUrl) => {
   const [resource, setResource] = useState(null);
 
