@@ -100,3 +100,12 @@ const ControlledComponent = ({ onSubmit, value, onChange }) => {
 ##### Which approach controls or uncontrolled components should we prefer?
 
 - In most cases, controlled components are the preferred choice. There are several reasons for this preference. First of all, control components tend to be more usable and easier to test with controlled components. We can easily set up the component with the desired state for testing purposes. This eliminates the need to manually manipulate the components and trigger events to examine its internal behaviour.
+
+### 4. HOC
+
+HOC - Higher order components are components that instead of directly returning JSX, return another component.
+
+As you are probably aware, most components in React simply Return JSX, which represents the Dom elements to be rendered in their place. However, with higher order components, we introduce an additional layer instead of directly returning JSX hoc return another component that in turn returns JSX. To simplify the concept, remember that higher order components are essentially functions that return components.
+
+Why would you want to create higher order components?
+First, hoc enable us to share behavior among multiple components. This is similar to what we observed with container components, where different components were wrapped within the same container and exhibited similar behavior. Higher order components provide a means to achieve similar functionality for sharing the relative logic. Additionally, higher order components allow us to add extra functionality to existing components.
