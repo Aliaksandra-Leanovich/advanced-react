@@ -109,3 +109,20 @@ As you are probably aware, most components in React simply Return JSX, which rep
 
 Why would you want to create higher order components?
 First, hoc enable us to share behavior among multiple components. This is similar to what we observed with container components, where different components were wrapped within the same container and exhibited similar behavior. Higher order components provide a means to achieve similar functionality for sharing the relative logic. Additionally, higher order components allow us to add extra functionality to existing components.
+
+### 5. HOC
+
+Custom hooks are hooks that we create by combining the basic hooks provided by React instead of repeating the same logic across multiple components, we encapsulate that logic into a custom hook.
+
+```jsx
+const useUsers = () => {
+  const [users, setUsers] = useStaet([]);
+
+  //load users fro server
+
+  return users;
+};
+
+//For using them
+const users = useUsers();
+```
