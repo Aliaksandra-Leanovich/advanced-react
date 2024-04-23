@@ -1,6 +1,37 @@
-import { forwardRef, useImperativeHandle, useRef } from "react";
+import { forwardRef, useImperativeHandle, useRef, useState } from "react";
+
+//case 2
 
 const CustomInput = (props, ref) => {
+  const [value, setValue] = useState("");
+
+  useImperativeHandle(ref, () => {
+    return {
+      value,
+    };
+  });
+
+  return (
+    <>
+      <input
+        {...props}
+        ref={inputRef}
+        className="text-input"
+        type="text"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+    </>
+  );
+};
+
+export const Input = forwardRef(CustomInput);
+
+//case 1
+
+const CustomInput = (props, ref) => {
+  const [value, setValue] = useState();
+
   const inputRef = useRef();
   const inputRef2 = useRef();
 
@@ -18,5 +49,3 @@ const CustomInput = (props, ref) => {
     </>
   );
 };
-
-export const Input = forwardRef(CustomInput);

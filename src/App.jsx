@@ -9,7 +9,13 @@ function App() {
       <Input type="text" ref={inputRef} />
       <button
         className="button"
-        onClick={() => inputRef.current.input1.focus()}
+        onClick={() => console.log(inputRef.current.value)} //case 2
+      >
+        Focus
+      </button>
+      <button
+        className="button"
+        onClick={() => inputRef.current.input1.focus()} //case 1
       >
         Focus
       </button>
