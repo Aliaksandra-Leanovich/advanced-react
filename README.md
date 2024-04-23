@@ -183,3 +183,12 @@ The normal use effect that we use has a kind of asynchronous behavior. Whenever 
 useLayoutEffect - whenever it wants to fire first, it does the task that it has in its body. And when it's done, if we need to render it, the the component is going to rerender.
 
 The power of use effect lies in that asynchronous like behavior that we said. But in some very rare cases, that usual use effect may cause some UI lags or some especially when you want to render some stuff based on the calculations. In those rare cases, this use layout effect can save you a lot because it's going to do some task based listening to a state or whatsoever. But usually you would definitely want to go with the normal use effect.
+
+#### 7. useId
+
+Case: click on label of input and we want to have cursor on them but it wont be so we need to give inputs and labe their id.
+We cant use Math.random for the id even tho it will work cuz in case we have some server side rendering, okay, this page is being rendered on the server and sent to the client whenever the client refreshes, it's going to have different IDs and that is not going to work simply because the ID that is generated in the first place on the server is not the same as the newly generated ID on the client side.
+
+In case if we have 2 element in 1 component and need to do different id we will do id={`${id}-name`} and `${id}-email`} thsn do several const id2 = useId()
+
+#### 8. useCallback as Ref
