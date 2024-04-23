@@ -1,15 +1,24 @@
+import { useState } from "react";
 import "./App.css";
-import { Child } from "./child";
-import { ErrorBoundary } from "./error-boundry";
+import Counter from "./counter";
 
 function App() {
+  const [changeShirts, setChangeShirts] = useState(false);
+
   return (
-    <>
-      <h1>Parent Component</h1>
-      <ErrorBoundary fallback={<h1>Error in child</h1>}>
-        <Child />
-      </ErrorBoundary>
-    </>
+    <div>
+      {changeShirts ? (
+        <>
+          <span>Shirts counts: </span> <Counter key="shirts" />
+        </>
+      ) : (
+        <>
+          <span>Shoes counts: </span> <Counter key="shoes" />
+        </>
+      )}
+      <br />
+      <button onClick={() => setChangeShirts((s) => !s)}>Switch</button>
+    </div>
   );
 }
 
