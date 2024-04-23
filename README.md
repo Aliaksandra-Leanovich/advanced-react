@@ -211,3 +211,5 @@ useTransition is a React Hook that lets you update the state without blocking th
 const [isPending, startTransition] = useTransition()
 
 EX: buttons are freezed because the whole application is waiting for this render of the list under 1 button to be finished.
+
+- useDeferredValue and useTransition are in use-deferred-value branch
