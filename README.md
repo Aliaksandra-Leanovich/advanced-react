@@ -199,3 +199,8 @@ So the idea of using use callback in this way is that whenever you want to perfo
 #### 8. useImperativeHandle
 
 React is indeed emphasizing on the declarative way of programming and you should avoid the imperative programming as much as you can. But sometimes you need to do it like for example, when we need to do some kind of focusing, we have to use useRef. But a safe thing or a safe feature that you can have, which is a good practice, is sometimes you can even limit what the user or the ref that you attach to a component or to an element, what exactly it points to. For example, this ref that we are attaching to this input in here is completely attached to this input element and it has access to all the features of this input. But if you want to limit it, you can limit it. For example, you want it to only have access to the focus function of this input element, not all the things - you can come in here and by using a very specific hook that is called use imperative, we can actually define what exactly this ref in here can have access to. And it takes a first parameter, which is the actual ref that we are passing to the component. And then it takes another function that returns some objects.
+
+#### 9. useDeferredValue
+
+useDeferredValue is a React Hook that lets you defer updating a part of the UI.
+useDeferredValue(value, initialValue?)
