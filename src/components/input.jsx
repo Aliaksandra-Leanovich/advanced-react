@@ -12,7 +12,7 @@ const CustomInput = (props, ref) => {
         value,
       };
     },
-    []
+    [value]
   );
 
   return (
