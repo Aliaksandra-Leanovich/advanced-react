@@ -192,3 +192,6 @@ We cant use Math.random for the id even tho it will work cuz in case we have som
 In case if we have 2 element in 1 component and need to do different id we will do id={`${id}-name`} and `${id}-email`} thsn do several const id2 = useId()
 
 #### 8. useCallback as Ref
+
+What happens in case we have this use effect in place and the input is not mounted yet, so it is going to be null. The solution is in the code.
+So the idea of using use callback in this way is that whenever you want to perform an action on an element right after it is rendered on the actual Dom, you can pass a use callback to that element like this and do whatever you want with it.
