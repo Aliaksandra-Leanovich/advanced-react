@@ -175,3 +175,11 @@ Functional Programming Use-cases
 #### 4. Keys
 
 #### 5. Event Listener
+
+#### 6. useLayoutEffect
+
+The normal use effect that we use has a kind of asynchronous behavior. Whenever it fires first, it tells the whole component to render, then it does the business it has to do.And then if that business, the task that it does in here, does change or does cause the application to the component to render, it will see that in some cases the lag. Based on some results done in the use effect that may cause some bad user experience.
+
+useLayoutEffect - whenever it wants to fire first, it does the task that it has in its body. And when it's done, if we need to render it, the the component is going to rerender.
+
+The power of use effect lies in that asynchronous like behavior that we said. But in some very rare cases, that usual use effect may cause some UI lags or some especially when you want to render some stuff based on the calculations. In those rare cases, this use layout effect can save you a lot because it's going to do some task based listening to a state or whatsoever. But usually you would definitely want to go with the normal use effect.

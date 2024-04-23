@@ -1,11 +1,4 @@
-.alert {
+.tooltip {
   position: absolute;
-  top: 10px;
-  left: 50%;
-  translate: -50%;
-  background-color: aquamarine;
-  color: black;
-  border-radius: 5px;
-  padding: 10px;
-  cursor: pointer;
+  border: 2px solid black;
 }
