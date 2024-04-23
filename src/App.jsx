@@ -1,28 +1,20 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useRef } from "react";
+import { Input } from "./components/input";
 
 function App() {
-  const [show, setShow] = useState(false);
-  const realInputRef = useRef(null);
-
-  const inputRef = useCallback((input) => {
-    realInputRef.current = input;
-    if (input === null) return;
-    input.focus();
-  }, []);
+  const inputRef = useRef(null);
 
   return (
     <>
-      <button onClick={() => setShow((s) => !s)}>Switch</button>
-      {show && <input type="text" ref={inputRef} />}
+      <Input type="text" ref={inputRef} />
+      <button
+        className="button"
+        onClick={() => inputRef.current.input1.focus()}
+      >
+        Focus
+      </button>
     </>
   );
 }
 
 export default App;
-
-// const inputRef = useRef(null);
-// useEffect(() => {
-//   inputRef.current.focus();
-// }, []);
-//going to cause an error and it says that
-//You want me to focus on an input or an element that doesn't exist yet
