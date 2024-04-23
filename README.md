@@ -146,7 +146,7 @@ Functional Programming Use-cases
 2. Functioanl components
 3. HOCs
 4. Recursive components
-5. Pertial components
+5. Partial components
 6. Composition
 
 # 4. Recursive pattern
@@ -154,3 +154,5 @@ Functional Programming Use-cases
 The recursive pattern is simply or the recursive component, is a component that calls itself from inside itself.
 
 # 5. Composition components
+
+# 6.Partial components
