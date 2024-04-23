@@ -1,11 +1,47 @@
-.alert {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  translate: -50%;
-  background-color: aquamarine;
-  color: black;
-  border-radius: 5px;
+.text-input {
+  width: 200px;
   padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Hover State */
+.text-input:hover {
+  border-color: #007bff;
+}
+
+/* Focus State */
+.text-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+.button {
+  display: block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
   cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+/* Hover State */
+.button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); /* Add a subtle scaling effect on hover */
+}
+
+/* Active State */
+.button:active {
+  background-color: #003e80;
 }
