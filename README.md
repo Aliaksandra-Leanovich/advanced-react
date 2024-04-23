@@ -167,3 +167,7 @@ Functional Programming Use-cases
 #### 1. React Portals
 
 #### 2. Forwarding refs
+
+#### 3. Error Boundaries
+
+- class components that are going to have a fallback component inside of them.
