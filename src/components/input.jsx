@@ -5,11 +5,15 @@ import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 const CustomInput = (props, ref) => {
   const [value, setValue] = useState("");
 
-  useImperativeHandle(ref, () => {
-    return {
-      value,
-    };
-  });
+  useImperativeHandle(
+    ref,
+    () => {
+      return {
+        value,
+      };
+    },
+    []
+  );
 
   return (
     <>
@@ -35,12 +39,16 @@ const CustomInput = (props, ref) => {
   const inputRef = useRef();
   const inputRef2 = useRef();
 
-  useImperativeHandle(ref, () => {
-    return {
-      input1: () => inputRef.current,
-      input2: () => inputRef2.current,
-    };
-  });
+  useImperativeHandle(
+    ref,
+    () => {
+      return {
+        input1: () => inputRef.current,
+        input2: () => inputRef2.current,
+      };
+    },
+    []
+  );
 
   return (
     <>
