@@ -172,4 +172,6 @@ Functional Programming Use-cases
 
 - class components that are going to have a fallback component inside of them.
 
-#### 3. Keys
+#### 4. Keys
+
+#### 5. Event Listener
