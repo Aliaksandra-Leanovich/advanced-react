@@ -4,9 +4,11 @@ const Buttons = (props) => {
   const onIncrementCounter = () => {
     emitter.emit("increment");
   };
+
   const onDecrementCounter = () => {
     emitter.emit("decrement");
   };
+
   return (
     <div>
       <button onClick={onIncrementCounter}>➕</button>
