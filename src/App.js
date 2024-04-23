@@ -1,11 +1,21 @@
-import { BookInfo } from "./components/book-info";
-import { UserInfo } from "./components/user-info";
+import { Recursive } from "./components/recursive";
+
+const myNestedObject = {
+  key1: "value1",
+  key2: {
+    innerKey1: "innerValue1",
+    innerKey2: {
+      innerInnerKey1: "innerInnerValue1",
+      innerInnerKey2: "innerInnerValue2",
+    },
+  },
+  key3: "value3",
+};
 
 function App() {
   return (
     <>
-      <UserInfo userId={"1"} />
-      <BookInfo bookId={"2"} />
+      <Recursive data={myNestedObject} />
     </>
   );
 }
