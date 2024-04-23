@@ -2,6 +2,15 @@
 
 ## Design Patterns
 
+Component Patterns:
+
+- Layout Components
+- Container Components
+- Controlled and Uncontrolled Components
+- Higher order components
+- Custom Hooks
+- Functional Programming in React
+
 ### 1. Layout Components
 
 Layout Components are specialized components that focus on organizing all the components within a web page. They help maintain consistency and structure in your application's layout.
@@ -101,7 +110,7 @@ const ControlledComponent = ({ onSubmit, value, onChange }) => {
 
 - In most cases, controlled components are the preferred choice. There are several reasons for this preference. First of all, control components tend to be more usable and easier to test with controlled components. We can easily set up the component with the desired state for testing purposes. This eliminates the need to manually manipulate the components and trigger events to examine its internal behaviour.
 
-### 4. HOC
+### 4. Higher Order Components
 
 HOC - Higher order components are components that instead of directly returning JSX, return another component.
 
@@ -126,3 +135,20 @@ const useUsers = () => {
 //For using them
 const users = useUsers();
 ```
+
+### 6. Functional Programming in React
+
+Functional Programming is an approach to organizing code that emphasizes minimizing mutation and state change, utilizing pure functions independent of external data and treating functions as first class citizens.
+
+Functional Programming Use-cases
+
+1. Controlled components
+2. Functioanl components
+3. HOCs
+4. Recursive components (The recursive pattern is simply or the recursive component, is a component that calls itself from inside itself.)
+5. Partial components
+6. Composition
+
+### 7. Compound Components
+
+- breaking down a component into several sub components, and then composing those sub components together in order to achieve the greater component.
