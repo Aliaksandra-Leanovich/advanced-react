@@ -164,4 +164,6 @@ Functional Programming Use-cases
 
 ## Advanced Concepts and Hooks
 
-### 1. React Portals
+#### 1. React Portals
+
+#### 2. Forwarding refs
