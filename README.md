@@ -152,3 +152,5 @@ Functional Programming Use-cases
 # 4. Recursive pattern
 
 The recursive pattern is simply or the recursive component, is a component that calls itself from inside itself.
+
+# 5. Composition components
