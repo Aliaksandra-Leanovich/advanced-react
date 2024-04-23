@@ -11,6 +11,11 @@ Component Patterns:
 - Custom Hooks
 - Functional Programming in React
 
+More Paterns :
+
+- Compound Components
+- Observer Pattern
+
 ### 1. Layout Components
 
 Layout Components are specialized components that focus on organizing all the components within a web page. They help maintain consistency and structure in your application's layout.
@@ -152,3 +157,7 @@ Functional Programming Use-cases
 ### 7. Compound Components
 
 - breaking down a component into several sub components, and then composing those sub components together in order to achieve the greater component.
+
+### 8. Observer Pattern
+
+- Whenever two components want to communicate they usually communicate via their parent component especially when they share the same state. But there are some situations where we need two components to communicate without including the parent component in the process. For example, whenever we have two components, like inside a counter and one of them wants to emit the a kind of event, you know, incrementing or decrementing the value. And there is another sibling component which listens to that event whenever the increment or decrement fires. It's going to update the counter value.
