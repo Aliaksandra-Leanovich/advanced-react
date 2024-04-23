@@ -1,23 +1,15 @@
-import { useRef } from "react";
 import "./App.css";
-import { Input } from "./input";
+import { Child } from "./child";
+import { ErrorBoundary } from "./error-boundry";
 
 function App() {
-  const inputRef = useRef();
-
-  function submitHandler(e) {
-    e.preventDefault();
-
-    console.log(inputRef.current.value);
-  }
-
   return (
-    <form onSubmit={submitHandler}>
-      <Input ref={inputRef} />
-      <button type="submit" className="button">
-        Submit
-      </button>
-    </form>
+    <>
+      <h1>Parent Component</h1>
+      <ErrorBoundary fallback={<h1>Error in child</h1>}>
+        <Child />
+      </ErrorBoundary>
+    </>
   );
 }
 
