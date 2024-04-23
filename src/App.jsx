@@ -1,16 +1,41 @@
+import { useState } from "react";
+import { createPortal } from "react-dom";
 import "./App.css";
-import { Child } from "./child";
-import { ErrorBoundary } from "./error-boundry";
 
 function App() {
+  const [show, setShow] = useState(false);
+
   return (
-    <>
-      <h1>Parent Component</h1>
-      <ErrorBoundary fallback={<h1>Error in child</h1>}>
-        <Child />
-      </ErrorBoundary>
-    </>
+    <div
+      onClickCapture={() => console.log("outer div")} //  on capture
+      style={{ position: "absolute", marginTop: "200px" }}
+    >
+      <h1>Other Content</h1>
+      <button onClick={() => setShow(true)}>Show Message</button>
+      <Alert show={show} onClose={() => setShow(false)}>
+        A sample message to show.
+        <br />
+        Click it to close.
+      </Alert>
+    </div>
   );
 }
+
+const Alert = ({ children, onClose, show }) => {
+  if (!show) return;
+
+  return createPortal(
+    <div
+      className="alert"
+      onClickCapture={() => {
+        onClose();
+        console.log("inner div");
+      }}
+    >
+      {children}
+    </div>,
+    document.querySelector("#alert-holder")
+  );
+};
 
 export default App;

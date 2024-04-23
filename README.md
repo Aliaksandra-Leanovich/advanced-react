@@ -171,3 +171,7 @@ Functional Programming Use-cases
 #### 3. Error Boundaries
 
 - class components that are going to have a fallback component inside of them.
+
+#### 4. Keys
+
+#### 5. Event Listener
