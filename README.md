@@ -262,3 +262,5 @@ src/
 - services - in larger applications we might have complex business logic code that is used in a few different places. A code like this is a good candidate to be extracted from components in a place somewhere else.
 - store - is responsible for files related to global state management. There are many state management solutions as as you know, that can be used for react projects such as Redux, Zustand, Jutai and many, many more.
 - views - contains the root components. For example, if we have a page that is supposed to allow users to view products, we could have a component
+
+## API Layer ans Async Operations
