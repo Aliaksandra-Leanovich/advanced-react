@@ -223,3 +223,42 @@ EX: buttons are freezed because the whole application is waiting for this render
 #### 2. Optimizing Context API
 
 #### 3. Less useEffects
+
+## General Architecture
+
+public/
+src/
+├── api/
+├── assets/
+│ ├── fonts/
+│ ├── images/
+├── components/
+│ ├──common/
+│ ├──├──button/
+│ ├── Newsletter/
+│ ├──├── newsletter.jsx
+│ ├──├── hook/
+│ └── ...
+├── config/
+├── constans/
+├── context/
+├── helpers/
+├── hooks/
+├── intl/
+├── layout/
+├── services/
+├── store/
+├── styles/
+├── types/
+└── views/
+
+- api - So this folder is used for containing the API layer of the application. It will have methods that are responsible mainly for performing API requests and communicating with a server.
+- config - You can put any runtime config files for your app and also third party services. For example, if you use a service like Firebase or anything else for authentication, you will need to add configuration files and use them in your application. Just make sure not to confuse config with environmental variables, as anything that goes in here will be present in the build bundle.
+- constans - you can put any constant variables that you use actually through the app. It's a good practice to capitalize your constants, as you can see in the example in here, just to distinguish them from other variables and localized constants in your applications.
+- context - The context directory should contain any global level context state providers.
+- helpers - any utilities and small reusable functions should go in here. For example functions to format, date, time, currency and so on.
+- intl - displaying the content of an app in a format appropriate to the user's local. This content can include, but not to be limited to translated text or specific format of dates, time. For example, for the UK they use the d slash, m m slash, y, y y for the date format, but for the United States users they say m m dash d d okay, so stuff like that, you can keep them in the intl.
+- layout - should have components that provide different layouts for your pages. For example, if you are building a dashboard application, you could render different layouts depending on if a user is logged in or not.
+- services - in larger applications we might have complex business logic code that is used in a few different places. A code like this is a good candidate to be extracted from components in a place somewhere else.
+- store - is responsible for files related to global state management. There are many state management solutions as as you know, that can be used for react projects such as Redux, Zustand, Jutai and many, many more.
+- views - contains the root components. For example, if we have a page that is supposed to allow users to view products, we could have a component
