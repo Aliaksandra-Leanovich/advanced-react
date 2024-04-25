@@ -294,3 +294,7 @@ Immer can be used in any context in which immutable data structures need to be u
 Colocate state in React means that we need to keep our “states” as close as where relevant is possible and let's maintain/keep that practice that if we don't nee some “state” is a component anymore then let's just colocate that state where it needs to be.
 
 #### Preventing re-renders by lifting components up
+
+#### Throttling
+
+- throttle is how often a function is executed. For example, imagine we have an analytics functionality that tracks the user's cursor position and records. However, we don't need to track every single pixel position change as one move of a mouse could freeze or actually fire up dozens or even hundreds of mouse move events. Instead, we can throttle the event callback so that it executes only once per a specific period of time.
