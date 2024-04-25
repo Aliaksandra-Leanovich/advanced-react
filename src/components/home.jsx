@@ -1,7 +1,8 @@
 const Home = (props) => {
+  // to pass component as prop wont lead to useless rerenders
   return (
     <div>
-      <Ingredients />
+      <Ingredients ingrediendsInfoHelper={<IngredientsInfoHelper />} />
     </div>
   );
 };
