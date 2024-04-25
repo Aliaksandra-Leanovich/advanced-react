@@ -43,6 +43,8 @@ const IngredientsList = (props) => {
   );
 };
 
+// 1 VAR not to rerender the whole component
+
 // export default memo(IngredientsList, (prevProps, nextProps) => {
 //   return prevProps.ingredients === nextProps.ingredients;
 // });
