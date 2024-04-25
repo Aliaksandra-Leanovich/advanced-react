@@ -4,7 +4,7 @@ const URLS = {
   fetchUsersUrl: "users",
 };
 
-export const fetchUsers = () => {
+export const fetchUser = () => {
   return api.get(URLS.fetchUsersUrl, {
     baseURL: "https://jsonplaceholder.typicode.com/",
   });

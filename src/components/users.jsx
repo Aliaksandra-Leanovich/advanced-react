@@ -1,29 +1,39 @@
 import React, { useEffect, useState } from "react";
-import { fetchUsers } from "../api/usersApi";
+import { fetchUser } from "../api/userApi";
 import styled from "styled-components";
 import { withAsync } from "../helpers/with-async";
-
-const ApiStatus = "IDLE" | "PENDING" | "SUCCESS" | "ERROR";
+import { apiStatus } from "../constants/api-status";
+import { useApiStatus } from "../api/hooks/useApiStatus";
+import LazyLoader from "./lazy-loader";
 
 const useFetchUsers = () => {
   const [users, setUsers] = useState([]);
-  const [fetchUsersStatus, setFetchUsersStatus] = useState("IDLE");
+
+  const {
+    status: fetchUsersStatus,
+    setStatus: setFetchUsersStatus,
+    isIdle: isFetchUsersStatusIdle,
+    isPending: isFetchUsersStatusPending,
+    isError: isFetchUsersStatusError,
+    isSuccess: isFetchUsersStatusSuccess,
+  } = useApiStatus(apiStatus.IDLE);
 
   const initFetchUsers = async () => {
-    setFetchUsersStatus("PENDING");
-    const { response, error } = await withAsync(() => fetchUsers());
-
+    setFetchUsersStatus(apiStatus.PENDING);
+    const { response, error } = await withAsync(() => fetchUser());
     if (error) {
-      setFetchUsersStatus("ERROR");
+      setFetchUsersStatus(apiStatus.ERROR);
     } else if (response) {
-      setFetchUsersStatus("SUCCESS");
       setUsers(response);
+      setFetchUsersStatus(apiStatus.SUCCESS);
     }
   };
-
   return {
     users,
-    fetchUsersStatus,
+    isFetchUsersStatusIdle,
+    isFetchUsersStatusPending,
+    isFetchUsersStatusError,
+    isFetchUsersStatusSuccess,
     initFetchUsers,
   };
 };
@@ -60,8 +70,15 @@ const FetchButton = styled.button`
   padding: 1rem;
 `;
 
-const Users = () => {
-  const { users, fetchUsersStatus, initFetchUsers } = useFetchUsers();
+function Users() {
+  const {
+    users,
+    initFetchUsers,
+    isFetchUsersStatusIdle,
+    isFetchUsersStatusPending,
+    isFetchUsersStatusSuccess,
+    isFetchUsersStatusError,
+  } = useFetchUsers();
 
   useEffect(() => {
     initFetchUsers();
@@ -70,11 +87,16 @@ const Users = () => {
   return (
     <Container>
       <FetchButton onClick={initFetchUsers}>
-        {fetchUsersStatus === "PENDING" ? "Loading..." : "Fetch Users"}
+        <LazyLoader
+          show={isFetchUsersStatusPending}
+          delay={500}
+          default="Fetch Users"
+        />
       </FetchButton>
       <FlexContainer>
         <ContentContainer>
-          {users
+          {isFetchUsersStatusIdle ? <p>Welcome</p> : null}
+          {isFetchUsersStatusSuccess
             ? users.map((user, index) => (
                 <React.Fragment key={index}>
                   <UserName>{user.name}</UserName>
@@ -86,6 +108,5 @@ const Users = () => {
       </FlexContainer>
     </Container>
   );
-};
-
+}
 export default Users;
