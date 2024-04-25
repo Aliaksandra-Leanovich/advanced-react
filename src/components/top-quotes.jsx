@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
-import styled from "styled-components";
 import { fetchTopQuotes } from "../api/quoteApi";
+import styled from "styled-components";
 
 const Container = styled.div`
   padding-top: 8px;
@@ -97,4 +97,5 @@ const FetchTopQuotes = () => {
     </Container>
   );
 };
+
 export default FetchTopQuotes;
