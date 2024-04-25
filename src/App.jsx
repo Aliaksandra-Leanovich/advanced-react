@@ -17,6 +17,9 @@ function App() {
   return (
     <>
       <TasksBoard />
+      <StyledApp>
+        <ShoppingList />
+      </StyledApp>
     </>
   );
 }
