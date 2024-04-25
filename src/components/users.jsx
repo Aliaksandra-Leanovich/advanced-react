@@ -1,42 +1,27 @@
-import React, { useEffect, useState } from "react";
-import { fetchUsers } from "../api/usersApi";
+import React, { useEffect } from "react";
+import { fetchUser } from "../api/userApi";
 import styled from "styled-components";
-import { withAsync } from "../helpers/with-async";
-import { apiStatus } from "../constants/api-status";
-import { useApiStatus } from "../api/hooks/useApiStatus";
 import LazyLoader from "./lazy-loader";
+import { useApi } from "../api/hooks/useApi";
 
 const useFetchUsers = () => {
-  const [users, setUsers] = useState([]);
-
   const {
+    data: users,
+    exec: initFetchUsers,
     status: fetchUsersStatus,
-    setStatus: setFetchUsersStatus,
     isIdle: isFetchUsersStatusIdle,
     isPending: isFetchUsersStatusPending,
     isError: isFetchUsersStatusError,
     isSuccess: isFetchUsersStatusSuccess,
-  } = useApiStatus(apiStatus.IDLE);
-
-  const initFetchUsers = async () => {
-    setFetchUsersStatus(apiStatus.PENDING);
-    const { response, error } = await withAsync(() => fetchUsers());
-
-    if (error) {
-      setFetchUsersStatus(apiStatus.ERROR);
-    } else if (response) {
-      setFetchUsersStatus(apiStatus.SUCCESS);
-      setUsers(response);
-    }
-  };
-
+  } = useApi(() => fetchUser().then((response) => response.data));
   return {
     users,
+    fetchUsersStatus,
+    initFetchUsers,
     isFetchUsersStatusIdle,
     isFetchUsersStatusPending,
     isFetchUsersStatusError,
     isFetchUsersStatusSuccess,
-    initFetchUsers,
   };
 };
 
@@ -72,14 +57,13 @@ const FetchButton = styled.button`
   padding: 1rem;
 `;
 
-const Users = () => {
+function Users() {
   const {
     users,
-    isFetchUsersStatusError,
+    initFetchUsers,
     isFetchUsersStatusIdle,
     isFetchUsersStatusPending,
     isFetchUsersStatusSuccess,
-    initFetchUsers,
   } = useFetchUsers();
 
   useEffect(() => {
@@ -97,7 +81,8 @@ const Users = () => {
       </FetchButton>
       <FlexContainer>
         <ContentContainer>
-          {users
+          {isFetchUsersStatusIdle ? <p>Welcome</p> : null}
+          {isFetchUsersStatusSuccess
             ? users.map((user, index) => (
                 <React.Fragment key={index}>
                   <UserName>{user.name}</UserName>
@@ -109,6 +94,5 @@ const Users = () => {
       </FlexContainer>
     </Container>
   );
-};
-
+}
 export default Users;

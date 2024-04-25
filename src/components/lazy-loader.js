@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 const LazyLoader = (props) => {
   const { show = false, delay = 0 } = props;
   const [showLoader, setShowLoader] = useState(false);
-
   useEffect(() => {
     let timeout;
     if (!show) {
@@ -15,13 +14,10 @@ const LazyLoader = (props) => {
     } else {
       timeout = setTimeout(() => setShowLoader(true), delay);
     }
-
     return () => {
       clearInterval(timeout);
     };
   }, [show, delay]);
-
   return showLoader ? "Loading..." : props.default;
 };
-
 export default LazyLoader;
