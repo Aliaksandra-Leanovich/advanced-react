@@ -272,3 +272,11 @@ src/
 - Pagination with React-Query
 - Infinite Scroll with React-Query
 - Query Cancellation with React-Query
+
+## State Management Patterns
+
+#### Immutable pdates with useImmer
+
+Immer can be used in any context in which immutable data structures need to be used. For example in combination with React state, React or Redux reducers, or configuration management.
+
+#### Cleaner reducer with useImmerReducer
