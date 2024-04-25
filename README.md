@@ -302,3 +302,13 @@ Colocate state in React means that we need to keep our “states” as close as 
 #### Debouncing
 
 - There is no point in spamming an API server on every keystroke. Instead, we can let the user type and then fetch new results only when a specific amount of time has passed since the last keystroke.
+
+## Design System Core Concepts
+
+Design System include together design, language, UI, kit, component library and style guide. Design systems help companies to define their own brand identity and turn them into accessible, consistent and reusable components.
+
+#### Design System: Developing components in React
+
+- styles
+- Button component
+- Modal component
