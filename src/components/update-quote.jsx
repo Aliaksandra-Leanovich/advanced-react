@@ -1,8 +1,8 @@
-import React, { useState } from "react";
 import { useMutation, useQueryClient } from "react-query";
+import { postQuote, resetQuotes } from "../api/quoteApi";
+import { useState } from "react";
 import { toast } from "react-toastify";
 import styled from "styled-components";
-import { postQuote, resetQuotes } from "../api/quoteApi";
 
 const Container = styled.div`
   padding: 8px;
@@ -45,52 +45,48 @@ const Button = styled.button`
 `;
 
 const UpdateQuotes = () => {
-  // Get access to the QueryClient instance
   const queryClient = useQueryClient();
-  // Quotes mutations
+
   const createQuoteMutation = useMutation(postQuote);
   const resetQuotesMutation = useMutation((e) => resetQuotes());
-  // Form state
+
   const [form, setForm] = useState({
     author: "",
     quote: "",
   });
-  // Update the form state on change
+
   const onChange = (e) => {
     setForm((_form) => ({
       ..._form,
       [e.target.name]: e.target.value,
     }));
   };
-  // Validate the form and start create quote mutation
+
   const onSubmit = async (e) => {
     e.preventDefault();
     const { author, quote } = form;
     if (!author || !quote) {
-      alert("Please provide quote and author text.");
+      alert("You have to enter the information first.");
       return;
     }
     await createQuoteMutation.mutate(form, {
       onSuccess: () => {
-        setForm({
-          quote: "",
-          author: "",
-        });
-        // Tell React-Query to refetch 'top-quotes' and 'quotes' queries
+        setForm({ author: "", quote: "" });
         queryClient.invalidateQueries("top-quotes");
         toast.success("Quote created");
       },
     });
   };
-  // Reset the quotes to their original state on the server
+
   const onReset = (e) => {
     resetQuotesMutation.mutate(e, {
       onSuccess: () => {
         queryClient.invalidateQueries("top-quotes");
-        toast.success("Quote resetted.");
+        toast.success("Quotes resetted");
       },
     });
   };
+
   return (
     <Container>
       <Title>Create quote</Title>
@@ -136,4 +132,5 @@ const UpdateQuotes = () => {
     </Container>
   );
 };
+
 export default UpdateQuotes;

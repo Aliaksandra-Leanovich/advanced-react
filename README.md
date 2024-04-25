@@ -265,4 +265,10 @@ src/
 
 ## API Layer ans Async Operations
 
-## API Layer with React Query
+## API Layer with React-Query
+
+- Fetching data with React-Query
+- Updating Data with React-Query
+- Pagination with React-Query
+- Infinite Scroll with React-Query
+- Query Cancellation with React-Query
