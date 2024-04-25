@@ -1,4 +1,8 @@
 const Home = (props) => {
-  return <div>Home</div>;
+  return (
+    <div>
+      <Ingredients />
+    </div>
+  );
 };
 export default Home;

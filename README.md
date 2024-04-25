@@ -280,3 +280,9 @@ src/
 Immer can be used in any context in which immutable data structures need to be used. For example in combination with React state, React or Redux reducers, or configuration management.
 
 #### Cleaner reducer with useImmerReducer
+
+## Perfomance Optimization
+
+#### Code-Splitting and Lazy-Loading
+
+#### useCallback hook to preserve referential integrity
