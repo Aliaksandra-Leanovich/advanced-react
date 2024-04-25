@@ -215,3 +215,11 @@ EX: buttons are freezed because the whole application is waiting for this render
 - useDeferredValue and useTransition are in use-deferred-value branch
 
 #### 11. Async React Router
+
+## Advanced Concepts and Hooks
+
+#### 1. Using Element Prop
+
+#### 2. Optimizing Context API
+
+#### 3. Less useEffects
