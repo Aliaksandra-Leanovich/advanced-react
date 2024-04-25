@@ -7,7 +7,6 @@ export function useApi(fn, config = {}) {
   const [data, setData] = useState(initialData);
   const [error, setError] = useState();
   const { status, setStatus, ...normalisedStatuses } = useApiStatus();
-
   const exec = async (...args) => {
     try {
       setStatus(PENDING);
