@@ -298,3 +298,7 @@ Colocate state in React means that we need to keep our “states” as close as 
 #### Throttling
 
 - throttle is how often a function is executed. For example, imagine we have an analytics functionality that tracks the user's cursor position and records. However, we don't need to track every single pixel position change as one move of a mouse could freeze or actually fire up dozens or even hundreds of mouse move events. Instead, we can throttle the event callback so that it executes only once per a specific period of time.
+
+#### Debouncing
+
+- There is no point in spamming an API server on every keystroke. Instead, we can let the user type and then fetch new results only when a specific amount of time has passed since the last keystroke.
