@@ -51,7 +51,7 @@ const initialIngredients = [
 
 const Ingredients = (props) => {
   console.log("Ingredient rendered");
-  const [ingredient, setIngredient] = useState("");
+
   const [ingredients, setIngredients] = useState(initialIngredients);
 
   const addIngredient = (ingredient) => {
@@ -86,11 +86,7 @@ const Ingredients = (props) => {
           deleteIngredient={deleteIngredient}
         />
 
-        <AddIngredient
-          addIngredient={addIngredient}
-          ingredient={ingredient}
-          setIngredient={setIngredient}
-        />
+        <AddIngredient addIngredient={addIngredient} />
       </StyledSpaceY4>
     </StyledContainer>
   );

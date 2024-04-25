@@ -286,3 +286,9 @@ Immer can be used in any context in which immutable data structures need to be u
 #### Code-Splitting and Lazy-Loading
 
 #### useCallback hook to preserve referential integrity
+
+#### Avoid rerenders with useMemo
+
+#### State Collocation
+
+Colocate state in React means that we need to keep our “states” as close as where relevant is possible and let's maintain/keep that practice that if we don't nee some “state” is a component anymore then let's just colocate that state where it needs to be.

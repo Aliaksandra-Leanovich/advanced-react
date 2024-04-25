@@ -28,7 +28,8 @@ const StyledButton = styled.button`
 
 const AddIngredient = (props) => {
   console.log("AddIngredient rendered");
-  const { addIngredient, ingredient, setIngredient } = props;
+  const [ingredient, setIngredient] = useState("");
+  const { addIngredient } = props;
 
   return (
     <form className="">
