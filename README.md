@@ -307,8 +307,19 @@ Colocate state in React means that we need to keep our “states” as close as 
 
 Design System include together design, language, UI, kit, component library and style guide. Design systems help companies to define their own brand identity and turn them into accessible, consistent and reusable components.
 
-#### Design System: Developing components in React
+### Design System: Developing components in React
 
 - styles
 - Button component
 - Modal component
+
+### Design System: Encapsulation Styles
+
+Styles Compositions. In general definition it means that every component, every thing that you can think of, is being composed of several smaller components or entities, for example react.js components, or to be more specific and low level the HTML elements, simply that every component that we build into an application, it's not just about react.js in any application, including it can be angular, Vue.js, solid, anything else in terms of the CSS styles.
+
+Encapsulation Styles.
+
+Princilpes:
+
+1. The components should only actually set the CSS that are inside of it or belong to it, to be more precise. So properties like position size and margin, which affects the outer space of a component, should be decided by the parent component.
+2. Each component should only style itself and only style the layout or the children that are completely directly come directly after it, the immediate children.
