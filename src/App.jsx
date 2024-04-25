@@ -1,17 +1,25 @@
-import { QueryClient, QueryClientProvider } from "react-query";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import QueryCancellationWithAbortSignal from "./components/query-cancellation";
-
-const queryClient = new QueryClient();
+import { useState } from "react";
+import TasksBoard from "./components/tasks-board";
 
 function App() {
+  // const [person, setPerson] = useState({
+  //   name: "William",
+  // });
+
+  // const onChange = () => {
+  //   // ❌ This won't work
+  //   person.age = 24;
+
+  //   // ✅ This will work
+  //   setPerson({ ...person, age: 24 });
+  // };
+
   return (
     <>
-      <QueryClientProvider client={queryClient}>
-        <ToastContainer />
-        <QueryCancellationWithAbortSignal />
-      </QueryClientProvider>
+      <TasksBoard />
+      <StyledApp>
+        <ShoppingList />
+      </StyledApp>
     </>
   );
 }
