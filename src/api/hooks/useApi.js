@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useApiStatus } from "./useApiStatus";
-import { PENDING, SUCCESS, ERROR } from "../../constants/api-status";
+import { ERROR, PENDING, SUCCESS } from "../../constants/api-status";
 
 export function useApi(fn, config = {}) {
   const { initialData } = config;
-  const [data, setData] = useState(initialData);
+  const [data, setData] = useState();
   const [error, setError] = useState();
   const { status, setStatus, ...normalisedStatuses } = useApiStatus();
+
   const exec = async (...args) => {
     try {
       setStatus(PENDING);
@@ -30,9 +31,7 @@ export function useApi(fn, config = {}) {
     data,
     setData,
     status,
-
     setStatus,
-    error,
     exec,
     ...normalisedStatuses,
   };

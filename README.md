@@ -264,3 +264,5 @@ src/
 - views - contains the root components. For example, if we have a page that is supposed to allow users to view products, we could have a component
 
 ## API Layer ans Async Operations
+
+## API Layer with React Query
